@@ -1,7 +1,5 @@
 function solution(n) {
     var answer = [];
-    for(let i =0;i<n/2;i++){
-        answer[i] = 2*i+1;
-    }
+    for(let i =1;i<=n;i+=2) answer.push(i);
     return answer;
 }
