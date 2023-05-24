@@ -65,7 +65,3 @@ function solution(array, commands) {
   return answer;
 }
 
-
-
-
-// return [5,6,3];
