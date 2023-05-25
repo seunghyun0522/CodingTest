@@ -1,15 +1,41 @@
-function solution(numbers) {
+function solution(number) {
+    var answer = '';
 
-    // 모든 number들을 string으로 바꿔주고 문자열을 그대로 연결한 수(b+a) - 바꿔 연결한 수(a+b)가 양수이면
-    // ex) b(3) + a(30) - a(30) + b(3) => 330 - 303 = 양수
-    // 3 30 순서를 그대로 유지한다.
+    number.sort(function (a, b) {
+        // a,b 를 문자로 변환
+        var a_str = a.toString();
+        var b_str = b.toString();
+        
+        // 비교를 위해 더함 sum_str1 : 610, sum_str2 : 106
+        var sum_str1 = a_str + b_str;
+        var sum_str2 = b_str + a_str;
+
+        // 문자열끼리 크기 변환이 가능
+        
+        if (sum_str1 > sum_str2) {
+            // -1 을 변환해서 change
+            return -1;
+        } else if (sum_str1 == sum_str2) {
+            return 0;
+        } else {
+            // 그대로
+            return 1;
+        }
+    });
     
-    let temp = numbers.map((a) => String(a)).sort((a, b) => b + a - (a + b));
-
-    // 모든 숫자가 0인 경우 000 이 나오지 않게 0을 출력
-    if (temp.every((a) => a === '0')) {
-        return '0';
-    } else {
-        return temp.join('');
+    for(let i=0; i<number.length;i++){
+        answer += number[i];
     }
+    
+     if (parseInt(answer) === 0) {
+        answer = "0";
+    }
+    
+    return answer;
+    
+    
+
 }
+
+
+solution([0,0])
