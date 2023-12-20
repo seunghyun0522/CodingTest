@@ -1,3 +1,4 @@
 function solution(num_list, n) {
-   return num_list.indexOf(n) >0 ? 1 :0;
+    if(num_list.includes(n)) return 1; 
+    else return 0;
 }
