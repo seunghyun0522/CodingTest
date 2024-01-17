@@ -1,15 +1,15 @@
 function solution(phone_book) {
-  let has = {};
-  for (let value of phone_book) {
-    has[value] = true;
-  }
+  phone_book.sort(); // 전화번호 리스트를 정렬합니다.
 
-  for (let value of phone_book) {
-
-    for (let i = 1; i < value.length; i++) {
-      let pre = value.slice(0, i);
-      if (has[pre]) return false;
+  console.log(phone_book);
+  for (let i = 0; i < phone_book.length - 1; i++) {
+    // 현재 번호와 다음 번호의 시작 부분이 같으면 접두어이므로 false를 반환합니다.
+    if (
+      phone_book[i] === phone_book[i + 1].substring(0, phone_book[i].length)
+    ) {
+      return false;
     }
   }
-  return true;
+
+  return true; // 접두어가 없는 경우 true를 반환합니다.
 }
