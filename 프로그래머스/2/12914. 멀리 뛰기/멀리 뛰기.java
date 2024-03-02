@@ -1,6 +1,6 @@
 class Solution {
     public long solution(int n) {
-        long arr []= new long[2001];
+        long arr []= new long[2002];
         
 	    arr[1]=1;
 	    arr[2]=2;
