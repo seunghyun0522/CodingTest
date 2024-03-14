@@ -3,7 +3,7 @@ function solution(numbers, target) {
 
   let a = new TargetNum(numbers, target, answer);
   a.dfs(0, 0);
-  console.log(a.answer);
+
   return a.answer;
 }
 
