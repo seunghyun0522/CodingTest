@@ -1,24 +1,20 @@
-function solution(numbers, target) {
-  var answer = 0;
+function solution(s, target) {
+  let result = 0;
 
-  let a = new TargetNum(numbers, target, answer);
-  a.dfs(0, 0);
-
-  return a.answer;
-}
-
-class TargetNum {
-  constructor(numbers, target, answer) {
-    this.numbers = numbers;
-    this.target = target;
-    this.answer = answer;
-  }
-  dfs(index, sum) {
-    if (index === this.numbers.length) {
-      if (this.target === sum) this.answer++;
-      return;
+  dfs(0, 0);
+  function dfs(index, sum) {
+    if (index === s.length) {
+      if (target === sum) {
+        result++;
+        return;
+      }
+    } else {
+      dfs(index + 1, sum + s[index]);
+      dfs(index + 1, sum - s[index]);
     }
-    this.dfs(index + 1, sum + this.numbers[index]);
-    this.dfs(index + 1, sum - this.numbers[index]);
   }
+  console.log(result);
+  return result;
 }
+
+solution([4, 1, 2, 1], 4);
