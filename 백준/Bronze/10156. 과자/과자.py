@@ -1,0 +1,5 @@
+k,n,m = input().split()
+k = int(k)
+n = int(n)
+m = int(m)
+print(k*n-m if k*n-m>0 else 0)
